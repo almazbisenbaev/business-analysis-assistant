@@ -6,7 +6,6 @@
 
     <el-main>
       <el-tabs v-model="currentTool" @tab-click="handleTabClick">
-
         <el-tab-pane label="About" name="welcome">
           <welcome />
         </el-tab-pane>
@@ -20,7 +19,6 @@
           <h2 class="tool-heading">SWOT Analysis Template</h2>
           <swot-maker @export="exportAsImage" />
         </el-tab-pane>
-        
       </el-tabs>
     </el-main>
 
@@ -47,8 +45,7 @@ export default defineComponent({
     SwotMaker,
   },
   setup() {
-    // const currentTool = ref<"leanCanvas" | "swot" | null>(null);
-    const currentTool = 'welcome';
+    const currentTool = ref<"welcome" | "leanCanvas" | "swot">("welcome");
 
     const exportAsImage = (elementId: string) => {
       const element = document.getElementById(elementId);
@@ -76,7 +73,6 @@ export default defineComponent({
 </script>
 
 <style>
-
 @import url('https://fonts.googleapis.com/css2?family=Patrick+Hand&display=swap');
 
 * {
@@ -108,5 +104,4 @@ export default defineComponent({
 .author {
   text-align: center;
 }
-
 </style>
